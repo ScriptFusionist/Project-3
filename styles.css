@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.card {
+    background: linear-gradient(145deg, #cce7ff, #ffffff);
+    width: 340px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15), -15px -15px 30px rgba(255, 255, 255, 1);
+}
+
+.card-header {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    will-change: transform;
+}
+
+.card:hover .profile-img {
+    filter: brightness(0.85);
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+h2 {
+    font-size: 24px;
+    color: #007bff; /* Blue color for Yuki */
+    margin-bottom: 10px;
+    position: relative;
+    animation: glowing 1.5s infinite alternate;
+}
+
+@keyframes glowing {
+    from {
+        text-shadow: 0 0 5px #007bff, 0 0 10px #007bff, 0 0 20px #007bff;
+    }
+    to {
+        text-shadow: 0 0 20px #007bff, 0 0 30px #007bff, 0 0 40px #007bff;
+    }
+}
+
+.quote {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.follow-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue color for Yuki */
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.follow-btn:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+    transform: scale(1.1);
+}
