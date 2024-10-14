@@ -1,103 +1,202 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f2f2f2;
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
 }
 
 .card {
-    background: linear-gradient(145deg, #cce7ff, #ffffff);
-    width: 340px;
-    border-radius: 15px;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  background-color: #fff;
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15), -15px -15px 30px rgba(255, 255, 255, 1);
+  background-color: #b2ebf2;
+  box-shadow: 0 12px 30px rgba(0, 188, 212, 0.5);
 }
 
-.card-header {
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.card-img-top {
+  border-bottom: 5px solid #00bcd4;
+  transition: transform 0.2s ease;
+  border-radius: 15px;
+  position: relative;
 }
 
-.profile-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    transition: transform 0.5s ease, filter 0.5s ease;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    will-change: transform;
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #00bcd4;
+  opacity: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkle-animation 0.8s forwards;
 }
 
-.card:hover .profile-img {
-    filter: brightness(0.85);
+@keyframes sparkle-animation {
+  0% {
+    opacity: 1;
+    transform: scale(0) translate(-50%, -50%);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.5) translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(-50%, -50%);
+  }
 }
 
 .card-body {
-    padding: 20px;
-    text-align: center;
-    position: relative;
-}
-
-h2 {
-    font-size: 24px;
-    color: #007bff; /* Blue color for Yuki */
-    margin-bottom: 10px;
-    position: relative;
-    animation: glowing 1.5s infinite alternate;
-}
-
-@keyframes glowing {
-    from {
-        text-shadow: 0 0 5px #007bff, 0 0 10px #007bff, 0 0 20px #007bff;
-    }
-    to {
-        text-shadow: 0 0 20px #007bff, 0 0 30px #007bff, 0 0 40px #007bff;
-    }
+  text-align: center;
 }
 
 .quote {
-    font-style: italic;
-    color: #666;
-    margin-bottom: 20px;
+  font-style: italic;
+  color: #888;
+  margin-bottom: 15px;
 }
 
-.description {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 20px;
+.card-title {
+  font-weight: bold;
+  color: #00bcd4;
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px rgba(0, 188, 212, 0.7);
 }
 
-.follow-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff; /* Blue color for Yuki */
-    color: white;
-    border-radius: 25px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.card-text {
+  font-size: 1rem;
+  color: #333;
 }
 
-.follow-btn:hover {
-    background-color: #0056b3; /* Darker shade for hover effect */
-    transform: scale(1.1);
+.btn-custom {
+  background-color: #00bcd4;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-custom:hover {
+  background-color: #0097a7;
+  transform: scale(1.05);
+}
+
+.btn-custom:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  transition: 0s;
+}
+
+.btn-custom:active {
+  animation: bounce 0.3s ease;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+/* Ripple effect on button */
+.ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ripple-animation 0.6s linear;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+
+/* Rotating stars effect */
+.star {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #00bcd4;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  animation: rotate 3s linear infinite;
+}
+
+.star:nth-child(1) {
+  top: -20px;
+  left: 30%;
+  animation-duration: 3s;
+}
+
+.star:nth-child(2) {
+  top: 0;
+  right: 20%;
+  animation-duration: 4s;
+}
+
+.star:nth-child(3) {
+  bottom: 0;
+  left: 40%;
+  animation-duration: 5s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Floating effect */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Media query for mobile-friendly design */
+@media (max-width: 576px) {
+  .card {
+    margin: 20px;
+    width: 100%;
+  }
 }
