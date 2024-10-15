@@ -1,10 +1,24 @@
 body {
-  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  background: linear-gradient(45deg, #e6f7ff, #d0e8ff, #b2e0ff, #94d2ff, #74c4ff);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   font-family: "Poppins", sans-serif;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .card {
@@ -21,41 +35,24 @@ body {
 }
 
 .card:hover {
-  background-color: #b2ebf2;
-  box-shadow: 0 12px 30px rgba(0, 188, 212, 0.5);
+  background-color: #e6f7ff;
+  box-shadow: 0 12px 30px rgba(135, 206, 235, 0.5);
+}
+
+.card:hover .card-body {
+  background: radial-gradient(circle, rgba(135, 206, 250, 0.2), rgba(255, 255, 255, 1));
+  transition: background 0.5s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.1) rotate(2deg);
+  transition: transform 0.6s ease;
 }
 
 .card-img-top {
-  border-bottom: 5px solid #00bcd4;
+  border-bottom: 5px solid #00bcd4; /* Warna biru */
   transition: transform 0.2s ease;
   border-radius: 15px;
-  position: relative;
-}
-
-.sparkle {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: #00bcd4;
-  opacity: 0;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: sparkle-animation 0.8s forwards;
-}
-
-@keyframes sparkle-animation {
-  0% {
-    opacity: 1;
-    transform: scale(0) translate(-50%, -50%);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.5) translate(-50%, -50%);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0) translate(-50%, -50%);
-  }
 }
 
 .card-body {
@@ -68,36 +65,50 @@ body {
   margin-bottom: 15px;
 }
 
-.card-title {
-  font-weight: bold;
-  color: #00bcd4;
-  margin-bottom: 10px;
-  text-shadow: 0 0 8px rgba(0, 188, 212, 0.7);
+h5.card-title {
+  font-size: calc(1.2rem + 0.5vw);
+  color: #1e90ff; /* Warna biru */
 }
 
-.card-text {
-  font-size: 1rem;
-  color: #333;
+.card-title {
+  font-weight: bold;
+  color: #1e90ff; /* Warna biru */
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px rgba(135, 206, 250, 0.7);
 }
 
 .btn-custom {
-  background-color: #00bcd4;
+  background: linear-gradient(45deg, #1e90ff, #74c4ff); /* Warna biru */
   color: #fff;
   border-radius: 50px;
   padding: 10px 20px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 5px;
+  transition: background 0.5s ease, transform 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.btn-custom:hover {
-  background-color: #0097a7;
-  transform: scale(1.05);
+.btn-custom::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
 }
 
-.btn-custom:active::after {
-  transform: translate(-50%, -50%) scale(1);
-  transition: 0s;
+.btn-custom:hover::before {
+  top: -100%;
+  left: 150%;
+  transition: all 0.6s ease;
+}
+
+.btn-custom:hover {
+  background: linear-gradient(45deg, #74c4ff, #1e90ff); /* Warna biru */
+  transform: scale(1.1);
 }
 
 .btn-custom:active {
@@ -105,8 +116,7 @@ body {
 }
 
 @keyframes bounce {
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
   }
   50% {
@@ -114,73 +124,6 @@ body {
   }
 }
 
-/* Ripple effect on button */
-.ripple {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: ripple-animation 0.6s linear;
-}
-
-@keyframes ripple-animation {
-  to {
-    transform: scale(10);
-    opacity: 0;
-  }
-}
-
-/* Rotating stars effect */
-.star {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  background: #00bcd4;
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
-  animation: rotate 3s linear infinite;
-}
-
-.star:nth-child(1) {
-  top: -20px;
-  left: 30%;
-  animation-duration: 3s;
-}
-
-.star:nth-child(2) {
-  top: 0;
-  right: 20%;
-  animation-duration: 4s;
-}
-
-.star:nth-child(3) {
-  bottom: 0;
-  left: 40%;
-  animation-duration: 5s;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Floating effect */
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -193,10 +136,127 @@ body {
   }
 }
 
-/* Media query for mobile-friendly design */
-@media (max-width: 576px) {
-  .card {
-    margin: 20px;
-    width: 100%;
+.nav-tabs {
+  border-bottom: 2px solid #1e90ff; /* Warna biru */
+  justify-content: center;
+  padding: 0;
+}
+
+.nav-tabs .nav-item .nav-link {
+  color: #1e90ff; /* Warna biru */
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-tabs .nav-item .nav-link:hover {
+  color: #74c4ff; /* Warna biru muda */
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  color: #74c4ff; /* Warna biru muda */
+  border-bottom-color: #1e90ff; /* Warna biru */
+}
+
+.tab-content {
+  padding-top: 10px;
+}
+
+.tab-pane {
+  color: #333;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.4s ease;
+}
+
+.tab-pane.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animasi pada item navbar */
+.nav-tabs .nav-item {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInNavbar 0.5s forwards ease-in-out;
+}
+
+.nav-tabs .nav-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.nav-tabs .nav-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.nav-tabs .nav-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInNavbar {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi khusus untuk tab "Profil" */
+#profile {
+  animation: slideInFromLeft 0.5s ease-in-out;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animasi khusus untuk tab "Karier" */
+#career {
+  animation: fadeInZoom 0.5s ease-in-out;
+}
+
+@keyframes fadeInZoom {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animasi satu per satu untuk Fakta Menarik */
+#facts ul li {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInFacts 0.4s forwards ease-in-out;
+}
+
+#facts ul li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+#facts ul li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+#facts ul li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInFacts {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
