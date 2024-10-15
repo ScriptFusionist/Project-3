@@ -1,13 +1,13 @@
 // Menghapus fitur double tap zoom pada gambar
-let aiImage = document.getElementById("aiImage");
+let yukiImage = document.getElementById("yukiImage");
 
 // Efek sparkle pada gambar saat hover
-aiImage.addEventListener("mousemove", function (e) {
+yukiImage.addEventListener("mousemove", function (e) {
   const sparkle = document.createElement("div");
   sparkle.classList.add("sparkle");
   sparkle.style.left = `${e.offsetX}px`;
   sparkle.style.top = `${e.offsetY}px`;
-  aiImage.parentElement.appendChild(sparkle);
+  yukiImage.parentElement.appendChild(sparkle);
   setTimeout(() => {
     sparkle.remove();
   }, 800);
