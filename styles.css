@@ -50,7 +50,7 @@ body {
 }
 
 .card-img-top {
-  border-bottom: 5px solid #00bcd4; /* Warna biru */
+  border-bottom: 5px solid #1e90ff; /* Warna biru */
   transition: transform 0.2s ease;
   border-radius: 15px;
 }
